@@ -87,12 +87,12 @@ if (item1 === 5) {
             }
 
             //calculo para o total bruto
-            let totalBruto = preçoItem1 + preçoItem2 + preçoItem3
+            let totalBruto = parseFloat(preçoItem1 + preçoItem2 + preçoItem3)
             //abaixo ha calculo dos descontos, se for estudante ganha 10% de desconto e se a compra der acima de 50, ganha um desconto de 5%
             //aqui ele está testando pra saber se há os dois descontos, ou se ha um ou outro ou os dois 
             let perguntaEstudante = prompt("você tem carteirinha de estudante? (s/n)").toLowerCase()
             if (perguntaEstudante == "s" && totalBruto > 50) {
-                let desconto = ((totalBruto * 10) / 100) + ((totalBruto * 5) / 100)
+                let desconto = parseFloat(((totalBruto * 10) / 100) + ((totalBruto * 5) / 100))
                 let total = totalBruto - desconto
                 //após os calculo e subtração para saber o valor liquido, ele ira exibir no alert o recibo
                 alert(`
@@ -104,8 +104,8 @@ if (item1 === 5) {
         total sem desconto: R$${totalBruto}
         total com desconto: R$${total.toFixed(2)}
         `)
-            } else if (perguntaEstudante == "s" && totalBruto < 50) {
-                let desconto = (totalBruto * 10) / 100
+            } else if (perguntaEstudante == "s" && totalBruto <= 50) {
+                let desconto = parseFloat((totalBruto * 10) / 100)
                 let total = totalBruto - desconto
                 alert(`
         Obrigado ${nome}!
@@ -117,7 +117,7 @@ if (item1 === 5) {
         total com desconto: R$${total.toFixed(2)}
         `)
             } else if (perguntaEstudante == "n" && totalBruto > 50) {
-                let desconto = (totalBruto * 5) / 100
+                let desconto = parseFloat((totalBruto * 5) / 100)
                 let total = totalBruto - desconto
                 alert(`
     Obrigado ${nome}!
